@@ -1,11 +1,26 @@
 import React, { Component } from 'react'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
 import Home from '../Components/Home'
 
 class HomeContainer extends Component {
     render() {
-        return <Home />
+        if(this.props.data.loading) return "Loading"
+        const { monthBalance } = this.props.data
+        return <Home monthBalance={monthBalance} />
     }
 }
 
-export default HomeContainer
+const monthBalanceQuery = gql`
+    query monthBalance {
+        monthBalance {
+            balance,
+            balanceGoal,
+            prevBalance,
+            prevBalanceGoal
+        }
+    }
+`
+
+export default graphql(monthBalanceQuery)(HomeContainer)
