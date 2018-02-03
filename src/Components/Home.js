@@ -7,7 +7,9 @@ import MonthBalanceChart from './MonthBalanceChart'
 import PopularFoodChart from './PopularFoodChart'
 
 const Home = ({
-    monthBalance
+    monthBalance,
+    weekOrders,
+    popularFood
 }) => {
 
     return(
@@ -16,7 +18,7 @@ const Home = ({
                 <Col md={5}>
                     <Wrap>
                         <Title>Daily orders</Title>
-                        <MonthBalanceChart />
+                        <MonthBalanceChart weekOrders={weekOrders} />
                     </Wrap>
                 </Col>
 
@@ -25,10 +27,10 @@ const Home = ({
                         <Title>Total Balance</Title>
                         <Center>
                             <Chart monthBalance={monthBalance} />
-                            <Percent>{ Math.floor((monthBalance.balance / monthBalance.balanceGoal) * 100) } %</Percent>
+                            <Percent>{ Math.floor((monthBalance.balance / monthBalance.goal) * 100) } %</Percent>
                         </Center>
                         <Balance>Balance: $ {monthBalance.balance}</Balance>
-                        <Goal>Goal: $ {monthBalance.balanceGoal}</Goal>
+                        <Goal>Goal: $ {monthBalance.goal}</Goal>
                     </Wrap>
                 </Col>
 
@@ -44,7 +46,7 @@ const Home = ({
                 <Col md={6}>
                     <Wrap2>
                         <Title>Popular food</Title>
-                        <PopularFoodChart />
+                        <PopularFoodChart popularFood={popularFood} />
                     </Wrap2>
                 </Col>
             </Row>
@@ -58,7 +60,7 @@ export default Home
 const Container = styled(Grid)`
     width: 100%;
     height: calc(100vh - 60px);
-    background-color: #FBFBFF;
+    background-color: #F7F7F7;
 `
 const Wrap = styled.div`
     background-color: white;
