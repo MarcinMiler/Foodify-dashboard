@@ -1,7 +1,7 @@
 import React from 'react'
 import { PieChart, Pie, Cell } from 'recharts'
 
-const Chart = ({
+const BalanceChart = ({
     monthBalance
 }) => {
     let data = [{ value: monthBalance.balance }, { value: monthBalance.goal-monthBalance.balance }]
@@ -28,4 +28,4 @@ const Chart = ({
     )
 }
 
-export default Chart
+export default BalanceChart

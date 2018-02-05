@@ -7,11 +7,15 @@ import Home from '../Components/Home'
 class HomeContainer extends Component {
     render() {
         if(this.props.monthBalance.loading) return "Loading"
-        console.log(this.props)
-        return <Home 
-                monthBalance={this.props.monthBalance.monthBalance}
-                weekOrders={this.props.weekOrders.weekOrders}
-                popularFood={this.props.popularFood.popularFood} />
+        const { monthBalance, weekOrders, popularFood } = this.props
+        return(
+            <div>
+                { monthBalance.monthBalance && weekOrders.weekOrders && popularFood.popularFood && <Home 
+                    monthBalance={this.props.monthBalance.monthBalance}
+                    weekOrders={this.props.weekOrders.weekOrders}
+                    popularFood={this.props.popularFood.popularFood} />}
+            </div>
+        )
     }
 }
 

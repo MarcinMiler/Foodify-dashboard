@@ -2,9 +2,9 @@ import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import styled from 'styled-components'
 
-import Chart from './Chart'
-import MonthBalanceChart from './MonthBalanceChart'
-import PopularFoodChart from './PopularFoodChart'
+import BalanceChart from '../Charts/BalanceChart'
+import OrdersChart from '../Charts/OrdersChart'
+import PopularFoodChart from '../Charts/PopularFoodChart'
 
 const Home = ({
     monthBalance,
@@ -18,7 +18,7 @@ const Home = ({
                 <Col md={5}>
                     <Wrap>
                         <Title>Daily orders</Title>
-                        <MonthBalanceChart weekOrders={weekOrders} />
+                        <OrdersChart weekOrders={weekOrders} />
                     </Wrap>
                 </Col>
 
@@ -26,7 +26,7 @@ const Home = ({
                     <Wrap>
                         <Title>Total Balance</Title>
                         <Center>
-                            <Chart monthBalance={monthBalance} />
+                            <BalanceChart monthBalance={monthBalance} />
                             <Percent>{ Math.floor((monthBalance.balance / monthBalance.goal) * 100) } %</Percent>
                         </Center>
                         <Balance>Balance: $ {monthBalance.balance}</Balance>
@@ -36,17 +36,31 @@ const Home = ({
 
                 <Col md={5}>
                     <Wrap>
-                    <Title>Balance</Title>
+                    <Title>Your Company</Title>
                     </Wrap>
                 </Col>
 
             </Row>
 
             <Row>
-                <Col md={6}>
+                <Col md={4}>
                     <Wrap2>
                         <Title>Popular food</Title>
                         <PopularFoodChart popularFood={popularFood} />
+                    </Wrap2>
+                </Col>
+
+                <Col md={4}>
+                    <Wrap2>
+                        <Title>Popular food</Title>
+                        
+                    </Wrap2>
+                </Col>
+
+                <Col md={4}>
+                    <Wrap2>
+                        <Title>Popular food</Title>
+                        
                     </Wrap2>
                 </Col>
             </Row>
@@ -71,8 +85,9 @@ const Wrap = styled.div`
     padding: 15px;
 `
 const Title = styled.p`
-    font-size: 24px;
-    margin: 0;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    color: #b907bc;
 `
 const Center = styled.div`
     display: flex;

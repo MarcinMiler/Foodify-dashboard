@@ -7,6 +7,7 @@ import { client } from './apollo'
 
 import HomeContainer from './Containers/HomeContainer'
 import NavContainer from './Containers/NavContainer'
+import DataContainer from './Containers/DataContainer'
 
 ReactDOM.render(
     <ApolloProvider client={client}>
@@ -14,7 +15,10 @@ ReactDOM.render(
         <Router>
             <div>
                 <NavContainer />
+
                 <Route exact path='/' component={HomeContainer} />
+                <Route exact path='/data' component={DataContainer} />
+                
             </div>
 
         </Router>
