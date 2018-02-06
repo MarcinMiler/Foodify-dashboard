@@ -6,16 +6,24 @@ import Data from '../Components/Data'
 
 class DataContainer extends Component {
     render() {
-        if(this.props.fullMonthBalance.loading) "Loading"
+        const { balancePerDay } = this.props.balancePerDay
         const { fullMonthBalance } = this.props.fullMonthBalance
         return(
             <div>
-                { fullMonthBalance && <Data fullMonthBalance={this.props.fullMonthBalance.fullMonthBalance} /> }
+                { balancePerDay && fullMonthBalance && <Data balancePerDay={balancePerDay} fullMonthBalance={fullMonthBalance} /> }
             </div>
         )
     }
 }
 
+const balancePerDayQuery = gql`
+    query balancePerDay {
+        balancePerDay {
+            day,
+            balance
+        }
+    }
+`
 const fullMonthBalanceQuery = gql`
     query fullMonthBalance {
         fullMonthBalance {
@@ -25,4 +33,7 @@ const fullMonthBalanceQuery = gql`
     }
 `
 
-export default graphql(fullMonthBalanceQuery, { name: 'fullMonthBalance' })(DataContainer)
+export default compose(
+    graphql(balancePerDayQuery, { name: 'balancePerDay' }),
+    graphql(fullMonthBalanceQuery, { name: 'fullMonthBalance' })
+)(DataContainer)

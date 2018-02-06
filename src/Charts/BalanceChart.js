@@ -6,7 +6,7 @@ const BalanceChart = ({
 }) => {
     let data = [{ value: monthBalance.balance }, { value: monthBalance.goal-monthBalance.balance }]
     if(monthBalance.balance > monthBalance.goal) data = [{ value: monthBalance.goal }]
-    const COLORS = ['#b907bc', 'lightgray']
+    const COLORS = ['#5D94F5', 'lightgray']
     return(
         <PieChart width={150} height={150}>
             <Pie

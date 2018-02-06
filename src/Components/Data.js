@@ -1,24 +1,42 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
+import { Scrollbars } from 'react-custom-scrollbars'
 import styled from 'styled-components'
 
-import FullMonthBalanceChart from '../Charts/FullMonthBalanceChart'
+import CustomLineChart from '../Charts/CustomLineChart' 
+import Topbar from './Topbar';
 
 const Data = ({
+    balancePerDay,
     fullMonthBalance
 }) => {
     return(
         <Container>
             <Row>
-
                 <Col md={12}>
-                    <Wrap>
-                        <Title>Month Balance</Title>
-                        <FullMonthBalanceChart fullMonthBalance={fullMonthBalance} />
-                    </Wrap>
+                    <Topbar />
                 </Col>
-
             </Row>
+            <Scrollbars style={{width: '99%', height: '860px'}}>
+                <Row>
+
+                    <Col md={6}>
+                        <Wrap>
+                            <Title>Month Balance</Title>
+                            <CustomLineChart data={fullMonthBalance} xKey='day' lineKey='balance' name='Balance' />
+                        </Wrap>
+                    </Col>
+
+                    <Col md={6}>
+                        <Wrap>
+                            <Title>Balance per day</Title>
+                            <CustomLineChart data={balancePerDay} xKey='day' lineKey='balance' name='Balance' />
+                        </Wrap>
+                    </Col>
+
+                </Row>
+
+            </Scrollbars>
         </Container>
     )
 }
@@ -27,8 +45,8 @@ export default Data
 
 const Container = styled(Grid)`
     width: 100%;
-    height: calc(100vh - 60px);
-    background-color: #F7F7F7;
+    height: 100vh;
+    background-color: #E6F0F2;
 `
 const Wrap = styled.div`
     background-color: white;
@@ -39,7 +57,8 @@ const Wrap = styled.div`
     padding: 15px;
 `
 const Title = styled.p`
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 500;
     margin: 0 0 10px 0;
-    color: #b907bc;
+    color: black;
 `

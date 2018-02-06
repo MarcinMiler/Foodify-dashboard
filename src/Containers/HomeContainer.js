@@ -6,7 +6,6 @@ import Home from '../Components/Home'
 
 class HomeContainer extends Component {
     render() {
-        if(this.props.monthBalance.loading) return "Loading"
         const { monthBalance, weekOrders, popularFood } = this.props
         return(
             <div>

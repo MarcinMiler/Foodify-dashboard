@@ -8,7 +8,6 @@ const Nav = () => (
     <Container>
         
         <Sidebar />
-        <Topbar />
 
     </Container>
 )

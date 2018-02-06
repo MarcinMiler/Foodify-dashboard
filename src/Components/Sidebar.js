@@ -20,27 +20,22 @@ const Sidebar = () => {
 
             <Item to='/'>
                 <DashboardIcon />
-                <Text>Home</Text>
             </Item>
 
             <Item to='/data'>
                 <ChartIcon />
-                <Text>Data</Text>
             </Item>
 
-            <Item to='/'>
+            <Item to='/orders'>
                 <ListIcon />
-                <Text>Orders</Text>
             </Item>
 
-            <Item to='/'>
+            <Item to='/products'>
                 <ProductsIcon />
-                <Text>Products</Text>
             </Item>
 
-            <Item to='/'>
+            <Item to='/clients'>
                 <PersonIcon />
-                <Text>Clients</Text>
             </Item>
 
         </Container>
@@ -59,22 +54,22 @@ const Container = styled.div`
     flex-direction: column;
 `
 const Item = styled(Link)`
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    color: gray;
+    color: #D0D1D5;
     transition: all 300ms ease-out;
 
     &:hover {
-        color: #b907bc;
+        color: #5D94F5;
     }
 `
 const LogoIcon = styled(Logo)`
     font-size: 42px;
     display: block;
     margin: 10px auto 30px auto;
-    color: #b907bc;
+    color: #5D94F5;
 `
 const DashboardIcon = styled(Dashboard)`
     font-size: 32px;
