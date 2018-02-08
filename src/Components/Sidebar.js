@@ -52,6 +52,7 @@ const Container = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 35px #c9c9c9;
 `
 const Item = styled(Link)`
     margin-bottom: 40px;
@@ -68,7 +69,7 @@ const Item = styled(Link)`
 const LogoIcon = styled(Logo)`
     font-size: 42px;
     display: block;
-    margin: 10px auto 30px auto;
+    margin: 40px auto 20px auto;
     color: #5D94F5;
 `
 const DashboardIcon = styled(Dashboard)`

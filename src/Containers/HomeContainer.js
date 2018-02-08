@@ -1,18 +1,26 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { changeSelect } from '../Actions'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
 import Home from '../Components/Home'
 
 class HomeContainer extends Component {
+
+    changeChartSelect = select => this.props.changeSelect(select)
+
     render() {
-        const { monthBalance, weekOrders, popularFood } = this.props
+        const { monthBalance, weekOrders, popularFood, newUsers } = this.props
+        console.log(this.props)
         return(
             <div>
-                { monthBalance.monthBalance && weekOrders.weekOrders && popularFood.popularFood && <Home 
+                { monthBalance.monthBalance && weekOrders.weekOrders && popularFood.popularFood && newUsers && <Home
+                    changeChartSelect={this.changeChartSelect}
                     monthBalance={this.props.monthBalance.monthBalance}
                     weekOrders={this.props.weekOrders.weekOrders}
-                    popularFood={this.props.popularFood.popularFood} />}
+                    popularFood={this.props.popularFood.popularFood}
+                    newUsers = {this.props.newUsers.newUsers} />}
             </div>
         )
     }
@@ -42,9 +50,25 @@ const popularFoodQuery = gql`
         }
     }
 `
+const newUsersQuery = gql`
+    query newUsers {
+        newUsers {
+            day,
+            number
+        }
+    }
+`
+
+const mapStateToProps = state => ({
+    select: state.settings.select
+})
+
+const mapDisptachToProps = { changeSelect }
 
 export default compose(
     graphql(monthBalanceQuery, { name: 'monthBalance' }),
     graphql(weekOrdersQuery, { name: 'weekOrders' }),
     graphql(popularFoodQuery, { name: 'popularFood' }),
+    graphql(newUsersQuery, { name: 'newUsers' }),
+    connect(mapStateToProps, mapDisptachToProps)
 )(HomeContainer)

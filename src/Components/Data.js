@@ -22,14 +22,14 @@ const Data = ({
 
                     <Col md={6}>
                         <Wrap>
-                            <Title>Month Balance</Title>
+                            <Title>Month Revenue</Title>
                             <CustomLineChart data={fullMonthBalance} xKey='day' lineKey='balance' name='Balance' />
                         </Wrap>
                     </Col>
 
                     <Col md={6}>
                         <Wrap>
-                            <Title>Balance per day</Title>
+                            <Title>Revenue per day</Title>
                             <CustomLineChart data={balancePerDay} xKey='day' lineKey='balance' name='Balance' />
                         </Wrap>
                     </Col>
@@ -46,15 +46,15 @@ export default Data
 const Container = styled(Grid)`
     width: 100%;
     height: 100vh;
-    background-color: #E6F0F2;
+    background-color: #f7f7f7;
 `
 const Wrap = styled.div`
     background-color: white;
     height: 500px;
     margin: 20px;
     border-radius: 10px;
-    box-shadow: 3px 3px 3px #e2e2e2;
     padding: 15px;
+    box-shadow: 0px 0px 35px #c9c9c9;
 `
 const Title = styled.p`
     font-size: 16px;

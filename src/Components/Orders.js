@@ -53,7 +53,7 @@ export default Orders
 const Container = styled(Grid)`
     width: 100%;
     height: 100vh;
-    background-color: #E6F0F2;
+    background-color: #f7f7f7;
 `
 const Wrap = styled.div`
     dispaly: flex;
@@ -83,7 +83,7 @@ const OrderWrap = styled.div`
     background-color: white;
     margin: 0 0 20px 0;
     border: 1px solid lightgray;
-    border-radius: 5px;
+    border-radius: 7px;
 `
 const P = styled.p`
     width: 150px;
