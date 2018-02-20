@@ -35,17 +35,15 @@ const Products = ({
 
             <Row>
                 <Col md={6}>
-                    <Wrap>
-                        <Title>Products</Title>
-
-                        <Product>
+                    <Wrap style={{padding: '8px 0 8px 0'}}>
+                        <Product style={{backgroundColor: 'white'}}>
                             <P>ID</P>
                             <P>Name</P>
                             <P>Category</P>
                             <P>Price $</P>
                         </Product>
 
-                        <Scrollbars style={{height: '80%'}}>
+                        <Scrollbars style={{height: '87%'}}>
                             {listOfProducts}
                         </Scrollbars>
                     </Wrap>
@@ -179,10 +177,13 @@ const Product = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 0 15px 0 15px;
     padding: 10px;
     border-bottom: 1px solid lightgray;
     position: relative;
+
+    &:nth-child(2n -1) {
+        background-color: #F0F1F8;
+    }
 `
 const P = styled.p`
     font-size: 14px;

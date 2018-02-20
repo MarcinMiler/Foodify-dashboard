@@ -25,6 +25,11 @@ class ProductsContainer extends Component {
                 price,
                 category,
                 url: file.name
+            },
+            update: (store, { data: { addProduct }}) => {
+                let data = store.readQuery({query: allProductsQuery})
+                data.allProducts.push(addProduct)
+                store.writeQuery({query: allProductsQuery, data})
             }
         })
         let formData = new FormData()
@@ -38,7 +43,13 @@ class ProductsContainer extends Component {
 
     deleteProduct = id => {
         this.props.deleteProduct({
-            variables: { id }
+            variables: { id },
+            update: (store, { data: { deleteProduct }}) => {
+                let data = store.readQuery({query: allProductsQuery})
+                let data2 = data.allProducts.filter(product => product.id !== deleteProduct)
+                data.allProducts = data2
+                store.writeQuery({query: allProductsQuery, data})
+            }
         })
     }
 
@@ -72,7 +83,10 @@ const allProductsQuery = gql`
 const addProductMutation = gql`
     mutation addProduct($name: String! $price: Float! $category: String! $url: String!) {
         addProduct(name: $name price: $price category: $category url: $url) {
-            ok
+            id,
+            name,
+            price,
+            category,
         }
     }
 `

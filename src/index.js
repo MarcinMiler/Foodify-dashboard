@@ -13,6 +13,7 @@ import NavContainer from './Containers/NavContainer'
 import DataContainer from './Containers/DataContainer'
 import OrdersContainer from './Containers/OrdersContainer'
 import ProductsContainer from './Containers/ProductsContainer'
+import ClientsContainer from './Containers/ClientsContainer'
 
 const store = createStore(rootReducer)
 
@@ -27,6 +28,7 @@ ReactDOM.render(
                     <Route exact path='/data' component={DataContainer} />
                     <Route exact path='/orders' component={OrdersContainer} />
                     <Route exact path='/products' component={ProductsContainer} />
+                    <Route exact path='/clients' component={ClientsContainer} />
 
                 </div>
             </Router>

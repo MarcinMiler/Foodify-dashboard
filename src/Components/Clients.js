@@ -2,24 +2,21 @@ import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import styled from 'styled-components'
 import { Scrollbars } from 'react-custom-scrollbars'
+
 import Topbar from './Topbar'
 
-const Orders = ({
-    allOrders
+const Clients = ({
+    users
 }) => {
-    let numbers = allOrders.length+2
-    const listOfOrders = allOrders.map((order, i) => {
-        numbers--
+    const listOfUsers = users.map(user => {
         return(
-            <Order>
-                <P>#{order.id.substring(0,8)}</P>
-                <P>{order.date}</P>
-                <P>{order.orderStatus}</P>
-                <P>{order.address}</P>
-                <P>$ {order.totalPrice}</P>
-            </Order>
+            <User key={user.id}>
+                <P>{user.id.substring(0,6)}</P>
+                <P>{user.email}</P>
+                <P>{user.orders.length}</P>
+            </User>
         )
-    }).reverse()
+    }) 
     return(
         <Container>
             <Row>
@@ -27,18 +24,17 @@ const Orders = ({
                     <Topbar />
                 </Col>
             </Row>
+
             <Row>
                 <Col md={12}>
                     <Wrap>
-                        <Order style={{backgroundColor: 'white'}}>
-                            <P>Order</P>
-                            <P>Date</P>
-                            <P>Status</P>
-                            <P>Adrress</P>
-                            <P>Total Price</P>
-                        </Order>
+                        <User style={{backgroundColor: 'white'}}>
+                            <P>ID</P>
+                            <P>Email</P>
+                            <P>Orders</P>
+                        </User>
                         <Scrollbars style={{height: '87%'}}>
-                            {listOfOrders}
+                            {listOfUsers}
                         </Scrollbars>
                     </Wrap>
                 </Col>
@@ -47,7 +43,7 @@ const Orders = ({
     )
 }
 
-export default Orders
+export default Clients
 
 const Container = styled(Grid)`
     width: 100%;
@@ -61,13 +57,7 @@ const Wrap = styled.div`
     border-radius: 10px;
     box-shadow: 0px 0px 35px #c9c9c9;
 `
-const Title = styled.p`
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 0 10px 0;
-    color: black;
-`
-const Order = styled.div`
+const User = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
