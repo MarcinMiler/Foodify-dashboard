@@ -35,8 +35,8 @@ const Products = ({
 
             <Row>
                 <Col md={6}>
-                    <Wrap style={{padding: '8px 0 8px 0'}}>
-                        <Product style={{backgroundColor: 'white'}}>
+                    <Wrap style={{padding: 0}}>
+                        <Product style={{backgroundColor: 'white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}>
                             <P>ID</P>
                             <P>Name</P>
                             <P>Category</P>

@@ -12,6 +12,7 @@ import HomeContainer from './Containers/HomeContainer'
 import NavContainer from './Containers/NavContainer'
 import DataContainer from './Containers/DataContainer'
 import OrdersContainer from './Containers/OrdersContainer'
+import ManageOrdersContainer from './Containers/ManageOrdersContainer'
 import ProductsContainer from './Containers/ProductsContainer'
 import ClientsContainer from './Containers/ClientsContainer'
 
@@ -27,6 +28,7 @@ ReactDOM.render(
                     <Route exact path='/' component={HomeContainer} />
                     <Route exact path='/data' component={DataContainer} />
                     <Route exact path='/orders' component={OrdersContainer} />
+                    <Route exact path='/manageOrders' component={ManageOrdersContainer} />
                     <Route exact path='/products' component={ProductsContainer} />
                     <Route exact path='/clients' component={ClientsContainer} />
 

@@ -28,7 +28,7 @@ const Clients = ({
             <Row>
                 <Col md={12}>
                     <Wrap>
-                        <User style={{backgroundColor: 'white'}}>
+                        <User style={{backgroundColor: 'white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}>
                             <P>ID</P>
                             <P>Email</P>
                             <P>Orders</P>

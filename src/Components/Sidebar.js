@@ -8,7 +8,7 @@ import List from 'react-icons/lib/fa/book'
 import Products from 'react-icons/lib/fa/cubes'
 import Person from 'react-icons/lib/fa/group'
 import Logo from 'react-icons/lib/fa/modx'
-
+import Check from 'react-icons/lib/md/beenhere'
 
 const Sidebar = () => {
     return(
@@ -28,6 +28,10 @@ const Sidebar = () => {
 
             <Item to='/orders'>
                 <ListIcon />
+            </Item>
+
+            <Item to='/manageOrders'>
+                <CheckIcon />
             </Item>
 
             <Item to='/products'>
@@ -83,6 +87,11 @@ const ChartIcon = styled(Chart)`
     margin: 0 auto 0 auto;
 `
 const ListIcon = styled(List)`
+    font-size: 32px;
+    display: block;
+    margin: 0 auto 0 auto;
+`
+const CheckIcon = styled(Check)`
     font-size: 32px;
     display: block;
     margin: 0 auto 0 auto;

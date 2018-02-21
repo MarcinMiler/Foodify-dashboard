@@ -7,11 +7,9 @@ import Topbar from './Topbar'
 const Orders = ({
     allOrders
 }) => {
-    let numbers = allOrders.length+2
     const listOfOrders = allOrders.map((order, i) => {
-        numbers--
         return(
-            <Order>
+            <Order key={order.id}>
                 <P>#{order.id.substring(0,8)}</P>
                 <P>{order.date}</P>
                 <P>{order.orderStatus}</P>
@@ -30,14 +28,14 @@ const Orders = ({
             <Row>
                 <Col md={12}>
                     <Wrap>
-                        <Order style={{backgroundColor: 'white'}}>
+                        <Order style={{backgroundColor: 'white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}>
                             <P>Order</P>
                             <P>Date</P>
                             <P>Status</P>
                             <P>Adrress</P>
                             <P>Total Price</P>
                         </Order>
-                        <Scrollbars style={{height: '87%'}}>
+                        <Scrollbars style={{height: '89%'}}>
                             {listOfOrders}
                         </Scrollbars>
                     </Wrap>
@@ -56,7 +54,7 @@ const Container = styled(Grid)`
 `
 const Wrap = styled.div`
     background-color: white;
-    height: 720px;
+    height: 800px;
     margin: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 35px #c9c9c9;
