@@ -1,7 +1,8 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-flexbox-grid'
-import styled from 'styled-components'
+import { Row, Col } from 'react-flexbox-grid'
 import { Scrollbars } from 'react-custom-scrollbars'
+import styled from 'styled-components'
+import { Container, Wrap, Title, List, ListWhite, P } from '../Styled'
 
 import Close from 'react-icons/lib/md/close'
 import DropZone from 'react-dropzone'
@@ -16,13 +17,13 @@ const Products = ({
 }) => {
     const listOfProducts = allProducts.map(product => {
         return(
-            <Product key={product.id}>
+            <List key={product.id}>
                 <P>{product.id.substring(0,8)}</P>
                 <P>{product.name}</P>
                 <P>{product.category}</P>
                 <P>{product.price} $</P>
                 <StyledClose onClick={() => deleteProduct(product.id)}/>
-            </Product>
+            </List>
         )
     })
     return(
@@ -35,15 +36,18 @@ const Products = ({
 
             <Row>
                 <Col md={6}>
-                    <Wrap style={{padding: 0}}>
-                        <Product style={{backgroundColor: 'white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}>
+                    <Wrap height='790px' noPadd>
+                        <Title padd>All products</Title>
+
+                        <ListWhite>
                             <P>ID</P>
                             <P>Name</P>
                             <P>Category</P>
                             <P>Price $</P>
-                        </Product>
+                            <P>Delete</P>
+                        </ListWhite>
 
-                        <Scrollbars style={{height: '87%'}}>
+                        <Scrollbars style={{height: '84.5%'}}>
                             {listOfProducts}
                         </Scrollbars>
                     </Wrap>
@@ -88,25 +92,6 @@ const Products = ({
 
 export default Products
 
-const Container = styled(Grid)`
-    width: 100%;
-    height: 100vh;
-    background-color: #f7f7f7;
-`
-const Wrap = styled.div`
-    background-color: white;
-    height: 500px;
-    margin: 20px;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0px 0px 35px #c9c9c9;
-`
-const Title = styled.p`
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 0 10px 0;
-    color: black;
-`
 const Group = styled.div`
     position: relative;
 `
@@ -173,28 +158,9 @@ const StyledDropZone = styled(DropZone)`
     height: 250px;
     border: 1px dashed black;
 `
-const Product = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px;
-    border-bottom: 1px solid lightgray;
-    position: relative;
-
-    &:nth-child(2n -1) {
-        background-color: #F0F1F8;
-    }
-`
-const P = styled.p`
-    font-size: 14px;
-    width: 150px;
-    text-align: center;
-`
 const StyledClose = styled(Close)`
     color: black;
+    width: 150px;
     font-size: 20px;
     cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 23px;
 `

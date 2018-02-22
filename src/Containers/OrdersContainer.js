@@ -7,7 +7,6 @@ import Orders from '../Components/Orders'
 class OrdersContainer extends Component {
     render() {
         const { allOrders } = this.props
-        console.log(this.props)
         return(
             <div>
                 { allOrders.allOrders && <Orders allOrders={allOrders.allOrders} />}

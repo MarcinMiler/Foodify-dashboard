@@ -1,6 +1,7 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-flexbox-grid'
+import { Row, Col } from 'react-flexbox-grid'
 import styled from 'styled-components'
+import { Container, Wrap, Title } from '../Styled'
 
 import TopBar from '../Components/Topbar'
 import BalanceChart from '../Charts/BalanceChart'
@@ -25,7 +26,7 @@ const Home = ({
             </Row>
             <Row>
                 <Col md={5}>
-                    <Wrap>
+                    <Wrap height='250px'>
                         <Head>
                             <Title>Daily orders</Title>
                             <Sort>
@@ -42,7 +43,7 @@ const Home = ({
                 </Col>
 
                 <Col md={2}>
-                    <Wrap>
+                    <Wrap height='250px'>
                         <Title>Total Revenue</Title>
                         <Center>
                             <BalanceChart monthBalance={monthBalance} />
@@ -54,7 +55,7 @@ const Home = ({
                 </Col>
 
                 <Col md={5}>
-                    <Wrap>
+                    <Wrap height='250px'>
                         <Head>
                             <Title>New users</Title>
                             <Sort>
@@ -110,28 +111,9 @@ const Home = ({
 
 export default Home
 
-const Container = styled(Grid)`
-    width: 100%;
-    height: 100vh;
-    background-color: #f7f7f7;
-`
-const Wrap = styled.div`
-    background-color: white;
-    height: 240px;
-    margin: 20px;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0px 0px 35px #c9c9c9;
-`
 const Head = styled.div`
     display: flex;
     justify-content: space-between;
-`
-const Title = styled.p`
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 0 10px 0;
-    color: black;
 `
 const Sort = styled.div`
     position: relative;
@@ -174,7 +156,7 @@ const Center = styled.div`
 `
 const Percent = styled.p`
     position: absolute;
-    top: 230px;
+    top: 240px;
     font-size: 24px;
 `
 const Balance = styled.p`

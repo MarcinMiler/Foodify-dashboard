@@ -1,6 +1,6 @@
 
 const initialState = {
-    select: 'lastWeek'
+    select: 'last week'
 }
 
 const settings = (state = initialState, action) => {

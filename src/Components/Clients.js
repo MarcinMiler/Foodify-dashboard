@@ -1,7 +1,7 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-flexbox-grid'
-import styled from 'styled-components'
+import { Row, Col } from 'react-flexbox-grid'
 import { Scrollbars } from 'react-custom-scrollbars'
+import { Container, Wrap, Title, List, ListWhite, P } from '../Styled'
 
 import Topbar from './Topbar'
 
@@ -10,11 +10,11 @@ const Clients = ({
 }) => {
     const listOfUsers = users.map(user => {
         return(
-            <User key={user.id}>
+            <List key={user.id}>
                 <P>{user.id.substring(0,6)}</P>
                 <P>{user.email}</P>
                 <P>{user.orders.length}</P>
-            </User>
+            </List>
         )
     }) 
     return(
@@ -27,12 +27,14 @@ const Clients = ({
 
             <Row>
                 <Col md={12}>
-                    <Wrap>
-                        <User style={{backgroundColor: 'white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}>
+                    <Wrap height='790px' noPadd>
+                        <Title padd>All clients</Title>
+                        <ListWhite>
                             <P>ID</P>
                             <P>Email</P>
                             <P>Orders</P>
-                        </User>
+                        </ListWhite>
+
                         <Scrollbars style={{height: '87%'}}>
                             {listOfUsers}
                         </Scrollbars>
@@ -44,32 +46,3 @@ const Clients = ({
 }
 
 export default Clients
-
-const Container = styled(Grid)`
-    width: 100%;
-    height: 100vh;
-    background-color: #f7f7f7;
-`
-const Wrap = styled.div`
-    background-color: white;
-    height: 720px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 35px #c9c9c9;
-`
-const User = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 80px;
-    justify-content: space-around;
-    align-items: center;
-
-    &:nth-child(2n -1) {
-        background-color: #F0F1F8;
-    }
-`
-const P = styled.p`
-    width: 150px;
-    text-align: center;
-`

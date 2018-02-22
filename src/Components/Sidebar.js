@@ -106,6 +106,3 @@ const PersonIcon = styled(Person)`
     display: block;
     margin: 0 auto 0 auto;
 `
-const Text = styled.p`
-    text-align: center;
-`

@@ -12,7 +12,6 @@ class HomeContainer extends Component {
 
     render() {
         const { monthBalance, weekOrders, popularFood, newUsers } = this.props
-        console.log(this.props)
         return(
             <div>
                 { monthBalance.monthBalance && weekOrders.weekOrders && popularFood.popularFood && newUsers && <Home
@@ -35,8 +34,8 @@ const monthBalanceQuery = gql`
     }
 `
 const weekOrdersQuery = gql`
-    query weekOrders {
-        weekOrders {
+    query weekOrders($limit: String!) {
+        weekOrders(limit: $limit) {
             day,
             orders
         }
@@ -66,9 +65,12 @@ const mapStateToProps = state => ({
 const mapDisptachToProps = { changeSelect }
 
 export default compose(
+    connect(mapStateToProps, mapDisptachToProps),
     graphql(monthBalanceQuery, { name: 'monthBalance' }),
-    graphql(weekOrdersQuery, { name: 'weekOrders' }),
+    graphql(weekOrdersQuery, {
+        name: 'weekOrders',
+        options: props => ({ variables: { limit: props.select } })
+    }),
     graphql(popularFoodQuery, { name: 'popularFood' }),
     graphql(newUsersQuery, { name: 'newUsers' }),
-    connect(mapStateToProps, mapDisptachToProps)
 )(HomeContainer)
