@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import { Scrollbars } from 'react-custom-scrollbars'
 import styled from 'styled-components'
-import { Container, Wrap, Title, List, ListWhite, P } from '../Styled'
+import { Container, Wrap, Title, List, ListWhite, P, Group, Input, Label } from '../Styled'
 
 import Close from 'react-icons/lib/md/close'
 import DropZone from 'react-dropzone'
@@ -92,42 +92,6 @@ const Products = ({
 
 export default Products
 
-const Group = styled.div`
-    position: relative;
-`
-const Label = styled.label`
-    position: absolute;
-    top: 5px;
-    font-size: 14px;
-    color: gray;
-    transition: all 150ms ease-in;
-    pointer-events: none;
-`
-const Input = styled.input`
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid lightgray;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px 0 5px 0;
-    transition: all 300ms ease-out;
-    margin: 30px 0 0 0;
-    z-index: 200;
-    display: block;
-    &:focus {
-        outline: none;
-        border-bottom: 1px solid #5D94F5;
-        color: #5D94F5;
-    }
-    &:focus + label, &:valid + label{
-        position: absolute;
-        top: -10px;
-        font-size: 12px;
-        color: #5D94F5;
-    }
-    
-`
 const Flex = styled.div`
     display: flex;
     flex-direction: row;

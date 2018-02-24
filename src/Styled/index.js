@@ -52,3 +52,39 @@ export const P = styled.p`
     width: 150px;
     text-align: center;
 `
+export const Group = styled.div`
+    position: relative;
+`
+export const Label = styled.label`
+    position: absolute;
+    top: 5px;
+    font-size: 14px;
+    color: gray;
+    transition: all 150ms ease-in;
+    pointer-events: none;
+`
+export const Input = styled.input`
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 0 5px 0;
+    transition: all 300ms ease-out;
+    margin: 30px 0 0 0;
+    z-index: 200;
+    display: block;
+    &:focus {
+        outline: none;
+        border-bottom: 1px solid #5D94F5;
+        color: #5D94F5;
+    }
+    &:focus + label, &:valid + label{
+        position: absolute;
+        top: -10px;
+        font-size: 12px;
+        color: #5D94F5;
+    }
+    
+`

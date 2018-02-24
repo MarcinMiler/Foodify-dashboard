@@ -8,8 +8,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
 import { client } from './apollo'
 
+import LoginContainer from './Containers/LoginContainer'
 import HomeContainer from './Containers/HomeContainer'
-import NavContainer from './Containers/NavContainer'
 import DataContainer from './Containers/DataContainer'
 import OrdersContainer from './Containers/OrdersContainer'
 import ManageOrdersContainer from './Containers/ManageOrdersContainer'
@@ -23,8 +23,8 @@ ReactDOM.render(
         <Provider store={store}>
             <Router>
                 <div>
-                    <NavContainer />
 
+                    <Route exact path='/login' component={LoginContainer} />
                     <Route exact path='/' component={HomeContainer} />
                     <Route exact path='/data' component={DataContainer} />
                     <Route exact path='/orders' component={OrdersContainer} />

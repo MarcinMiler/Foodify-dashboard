@@ -7,7 +7,11 @@ import ManageOrders from '../Components/ManageOrders'
 class ManageOrdersContainer extends Component {
 
     componentDidMount() {
-        this.subscribe()
+        this.unsubscribe = this.subscribe()
+    }
+
+    componentWillUnmount() {
+        if (this.unsubscribe) this.unsubscribe()
     }
 
     updateStatus = (newStatus, id) => {

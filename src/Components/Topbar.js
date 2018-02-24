@@ -2,25 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Plus from 'react-icons/lib/fa/plus'
+import Navbar from './Nav'
 
 const TopBar = () => {
     return(
-        <Container>
+        <div>
+            <Navbar />
+            <Container>
+                <Wrap>
+                    <Cirlce>
+                        <PlusIcon />
+                    </Cirlce>
 
-            <Wrap>
-                <Cirlce>
-                    <PlusIcon />
-                </Cirlce>
+                    <P>Help</P>
+                    <P>Contact</P>
+                </Wrap>
 
-                <P>Help</P>
-                <P>Contact</P>
-            </Wrap>
-
-            <User>
-                <Text>Marcin Miler</Text>
-                <UserPhoto style={{backgroundImage: 'url(https://static.pexels.com/photos/220453/pexels-photo-220453.jpeg)'}} />
-            </User>
-        </Container>
+                <User>
+                    <Text>Marcin Miler</Text>
+                    <UserPhoto style={{backgroundImage: 'url(https://static.pexels.com/photos/220453/pexels-photo-220453.jpeg)'}} />
+                </User>
+            </Container>
+        </div>
     )
 }
 
