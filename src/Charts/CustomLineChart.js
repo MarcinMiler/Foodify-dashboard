@@ -1,5 +1,5 @@
 import React from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, defs, linearGradient, stop } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, defs, linearGradient, stop, Area, AreaChart } from 'recharts'
 
 const CustomLineChart = ({
     data,
@@ -9,19 +9,19 @@ const CustomLineChart = ({
 }) => {
     return(
         <ResponsiveContainer width='100%' height="90%">
-            <LineChart data={data}>
+            <AreaChart data={data}>
                 <defs>
-                    <linearGradient id="colorUv" x1="1" y1="0" x2="0" y2="0">
-                        <stop offset="0%" stopColor="#D10AF4" stopOpacity={1}/>
-                        <stop offset="100%" stopColor="#FFBF00" stopOpacity={1}/>
+                    <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#DE23FF" stopOpacity={0.3}/>
+                        <stop offset="100%" stopColor="#DE23FF" stopOpacity={0}/>
                     </linearGradient>
                 </defs>
                 <XAxis axisLine={false} tickLine={false} dataKey={xKey} style={{fontSize: '12px'}} />
                 <YAxis axisLine={false} tickLine={false} style={{fontSize: '12px'}}/>
                 <CartesianGrid strokeDasharray="0" vertical={false}/>
                 <Tooltip isAnimationActive={false} />
-                <Line dot={false} name={name} type="monotone" dataKey={lineKey} stroke="url(#colorUv)" strokeWidth={2} />
-            </LineChart>
+                <Area dot={false} name={name} type="monotone" dataKey={lineKey} stroke='#DE23FF' fill="url(#colorUv)" strokeWidth={2} />
+            </AreaChart>
         </ResponsiveContainer>
     )
 }

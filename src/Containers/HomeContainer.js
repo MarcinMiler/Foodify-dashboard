@@ -5,6 +5,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
 import Home from '../Components/Home'
+import Nav from '../Components/Nav'
 
 class HomeContainer extends Component {
 
@@ -12,15 +13,18 @@ class HomeContainer extends Component {
 
     render() {
         const { monthBalance, weekOrders, popularFood, newUsers } = this.props
-        console.log(localStorage.getItem('token'))
         return(
             <div>
-                { monthBalance.monthBalance && weekOrders.weekOrders && popularFood.popularFood && newUsers && <Home
-                    changeChartSelect={this.changeChartSelect}
-                    monthBalance={this.props.monthBalance.monthBalance}
-                    weekOrders={this.props.weekOrders.weekOrders}
-                    popularFood={this.props.popularFood.popularFood}
-                    newUsers = {this.props.newUsers.newUsers} />}
+                { monthBalance.monthBalance && weekOrders.weekOrders && popularFood.popularFood && newUsers && 
+                    <Nav>
+                        <Home
+                            changeChartSelect={this.changeChartSelect}
+                            monthBalance={this.props.monthBalance.monthBalance}
+                            weekOrders={this.props.weekOrders.weekOrders}
+                            popularFood={this.props.popularFood.popularFood}
+                            newUsers = {this.props.newUsers.newUsers} />
+                    </Nav>
+                }
             </div>
         )
     }

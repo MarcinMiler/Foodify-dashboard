@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
 import ManageOrders from '../Components/ManageOrders'
+import Nav from '../Components/Nav'
 
 class ManageOrdersContainer extends Component {
 
@@ -44,7 +45,11 @@ class ManageOrdersContainer extends Component {
         const { currentOrders } = this.props.currentOrders
         return(
             <div>
-                { currentOrders && <ManageOrders currentOrders={currentOrders} updateStatus={this.updateStatus} /> }
+                { currentOrders && 
+                    <Nav>
+                        <ManageOrders currentOrders={currentOrders} updateStatus={this.updateStatus} />
+                    </Nav>
+                }
             </div>
         )
     }

@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
 import Products from '../Components/Products'
+import Nav from '../Components/Nav'
 
 class ProductsContainer extends Component {
 
@@ -58,13 +59,16 @@ class ProductsContainer extends Component {
         console.log(this.props)
         return(
             <div>
-                { allProducts && 
-                    <Products 
-                        state={this.state}
-                        allProducts={allProducts}
-                        changeState={this.handleChangeState}
-                        addProduct={this.addProduct}
-                        deleteProduct={this.deleteProduct} />}
+                { allProducts &&
+                    <Nav>
+                        <Products 
+                            state={this.state}
+                            allProducts={allProducts}
+                            changeState={this.handleChangeState}
+                            addProduct={this.addProduct}
+                            deleteProduct={this.deleteProduct} />
+                    </Nav>
+                }
             </div>
         )
     }

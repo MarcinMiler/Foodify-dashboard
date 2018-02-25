@@ -26,7 +26,6 @@ class LoginContainer extends Component {
                     password
                 }
             })
-            console.log(loginResponse, 'resslogin')
             if(loginResponse.data.login.ok) {
                 const { token } = loginResponse.data.login
                 localStorage.setItem('token', token)
@@ -58,7 +57,6 @@ class LoginContainer extends Component {
     }
 
     render() {
-        console.log(this.state)
         return <Login changeState={this.handleChangeState} login={this.login} />
     }
 }

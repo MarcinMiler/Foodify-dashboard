@@ -3,10 +3,16 @@ import styled from 'styled-components'
 
 import Sidebar from './Sidebar'
 
-const Nav = () => (
+const Nav = ({
+    children
+}) => (
     <Container>
         
         <Sidebar />
+
+        <Main>
+            { children }
+        </Main>
 
     </Container>
 )
@@ -18,4 +24,8 @@ const Container = styled.div`
     flex-direction: row;
     width: 100%;
     height: 100%;
+`
+const Main = styled.div`
+    width: calc(100% - 100px);
+    height: 100vh;
 `

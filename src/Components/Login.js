@@ -29,7 +29,6 @@ export default Login
 const Container = styled.div`
     width: 100%;
     height: 100vh;
-    margin-left: -100px;
 `
 const Button = styled.div`
     width: 100px;

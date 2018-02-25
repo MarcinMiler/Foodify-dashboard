@@ -6,6 +6,7 @@ import { Container, Wrap, Title, List, ListWhite, P } from '../Styled'
 
 import Check from 'react-icons/lib/md/check'
 import Close from 'react-icons/lib/md/close'
+import Products from 'react-icons/lib/md/shopping-cart'
 import TopBar from './Topbar'
 
 const Legend = () => (
@@ -13,9 +14,22 @@ const Legend = () => (
         <P>Order</P>
         <P>Adrress</P>
         <P>Total Price</P>
+        <P>Products</P>
         <P>Action</P>
     </ListWhite>
 )
+
+const Hover = () => (
+    <Lol>
+        lol
+    </Lol>
+)
+
+const optionsCursorTrueWithMargin = {
+    followCursor: false,
+    shiftX: 20,
+    shiftY: 0
+  }
 
 const ManageOrders = ({
     currentOrders,
@@ -29,6 +43,11 @@ const ManageOrders = ({
                 <P>#{order.id.substring(0,8)}</P>
                 <P>{order.address}</P>
                 <P>$ {order.totalPrice}</P>
+
+                <div style={{width: '150px', textAlign: 'center'}}>
+                    <ProductsIcon />
+                </div>
+
                 <div style={{width: '150px', textAlign: 'center'}}>
                     <CheckIcon onClick={() => updateStatus('Order confirmed', order.id)} />
                     <CloseIcon />
@@ -44,6 +63,11 @@ const ManageOrders = ({
                 <P>#{order.id.substring(0,8)}</P>
                 <P>{order.address}</P>
                 <P>$ {order.totalPrice}</P>
+
+                <div style={{width: '150px', textAlign: 'center'}}>
+                    <ProductsIcon />
+                </div>
+
                 <div style={{width: '150px', textAlign: 'center'}}>
                     <CheckIcon onClick={() => updateStatus('Order preparing', order.id)} />
                 </div>
@@ -58,6 +82,11 @@ const ManageOrders = ({
                 <P>#{order.id.substring(0,8)}</P>
                 <P>{order.address}</P>
                 <P>$ {order.totalPrice}</P>
+
+                <div style={{width: '150px', textAlign: 'center'}}>
+                    <ProductsIcon />
+                </div>
+
                 <div style={{width: '150px', textAlign: 'center'}}>
                     <CheckIcon onClick={() => updateStatus('Order in delivery', order.id)} />
                 </div>
@@ -72,6 +101,11 @@ const ManageOrders = ({
                 <P>#{order.id.substring(0,8)}</P>
                 <P>{order.address}</P>
                 <P>$ {order.totalPrice}</P>
+
+                <div style={{width: '150px', textAlign: 'center'}}>
+                    <ProductsIcon />
+                </div>
+
                 <div style={{width: '150px', textAlign: 'center'}}>
                     <CheckIcon onClick={() => updateStatus('Order complete', order.id)} />
                 </div>
@@ -155,4 +189,18 @@ const CloseIcon = styled(Close)`
     font-size: 30px;
     margin: 10px;
     cursor: pointer;
+`
+const ProductsIcon = styled(Products)`
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+    color: gray;
+`
+const Lol = styled.div`
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    background-color: red;
+    width: 150px;
+    height: 150px;
 `

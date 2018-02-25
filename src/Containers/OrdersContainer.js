@@ -3,13 +3,18 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
 import Orders from '../Components/Orders'
+import Nav from '../Components/Nav'
 
 class OrdersContainer extends Component {
     render() {
         const { allOrders } = this.props
         return(
             <div>
-                { allOrders.allOrders && <Orders allOrders={allOrders.allOrders} />}
+                { allOrders.allOrders && 
+                    <Nav>
+                        <Orders allOrders={allOrders.allOrders} />
+                    </Nav>
+                }
             </div>
         ) 
     }

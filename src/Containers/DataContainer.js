@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
 import Data from '../Components/Data'
+import Nav from '../Components/Nav'
 
 class DataContainer extends Component {
     render() {
@@ -10,7 +11,11 @@ class DataContainer extends Component {
         const { fullMonthBalance } = this.props.fullMonthBalance
         return(
             <div>
-                { balancePerDay && fullMonthBalance && <Data balancePerDay={balancePerDay} fullMonthBalance={fullMonthBalance} /> }
+                { balancePerDay && fullMonthBalance && 
+                    <Nav>
+                        <Data balancePerDay={balancePerDay} fullMonthBalance={fullMonthBalance} /> 
+                    </Nav>
+                }
             </div>
         )
     }

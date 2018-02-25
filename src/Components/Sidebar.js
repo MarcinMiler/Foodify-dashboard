@@ -9,6 +9,7 @@ import Products from 'react-icons/lib/fa/cubes'
 import Person from 'react-icons/lib/fa/group'
 import Logo from 'react-icons/lib/fa/modx'
 import Check from 'react-icons/lib/md/beenhere'
+import Logout from 'react-icons/lib/fa/power-off'
 
 const Sidebar = () => {
     return(
@@ -42,6 +43,10 @@ const Sidebar = () => {
                 <PersonIcon />
             </Item>
 
+            <Item to='/login' onClick={() => localStorage.removeItem('token')}>
+                <LogoutIcon />
+            </Item>
+
         </Container>
     )
 }
@@ -49,9 +54,6 @@ const Sidebar = () => {
 export default Sidebar
 
 const Container = styled.div`
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100px;
     height: 100vh;
     display: flex;
@@ -102,6 +104,11 @@ const ProductsIcon = styled(Products)`
     margin: 0 auto 0 auto;
 `
 const PersonIcon = styled(Person)`
+    font-size: 32px;
+    display: block;
+    margin: 0 auto 0 auto;
+`
+const LogoutIcon = styled(Logout)`
     font-size: 32px;
     display: block;
     margin: 0 auto 0 auto;

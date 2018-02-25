@@ -2,12 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Plus from 'react-icons/lib/fa/plus'
-import Navbar from './Nav'
 
 const TopBar = () => {
     return(
         <div>
-            <Navbar />
             <Container>
                 <Wrap>
                     <Cirlce>
