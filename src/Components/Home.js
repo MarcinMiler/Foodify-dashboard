@@ -91,18 +91,13 @@ const Home = ({
                     </Wrap2>
                 </Col>
 
-                <Col md={4}>
+                <Col md={8}>
                     <Wrap2>
                         <Title>Popular food</Title>
                         
                     </Wrap2>
                 </Col>
 
-                <Col md={4}>
-                    <Wrap2>
-                        <Title>Popular food</Title>
-                    </Wrap2>
-                </Col>
             </Row>
         </Container>
     )
@@ -144,9 +139,9 @@ const Select = styled.select`
 const DownIcon = styled(Down)`
     position: absolute;
     left: 75px;
-    top: 5px;
+    top: 9px;
     font-size: 20px;
-    color: #5D94F5;
+    color: #ec407a;
     display: block;
     pointer-events: none;
 `

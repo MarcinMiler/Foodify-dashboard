@@ -19,21 +19,10 @@ const Legend = () => (
     </ListWhite>
 )
 
-const Hover = () => (
-    <Lol>
-        lol
-    </Lol>
-)
-
-const optionsCursorTrueWithMargin = {
-    followCursor: false,
-    shiftX: 20,
-    shiftY: 0
-  }
-
 const ManageOrders = ({
     currentOrders,
-    updateStatus
+    updateStatus,
+    changeState
 }) => {
     const newOrders = currentOrders
     .filter(order => order.orderStatus === 'Order placed')
@@ -45,7 +34,10 @@ const ManageOrders = ({
                 <P>$ {order.totalPrice}</P>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
-                    <ProductsIcon />
+                    <ProductsIcon onClick={() => {
+                        changeState('order', order.products)
+                        changeState('open', true)
+                    }} />
                 </div>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
@@ -65,7 +57,10 @@ const ManageOrders = ({
                 <P>$ {order.totalPrice}</P>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
-                    <ProductsIcon />
+                    <ProductsIcon onClick={() => {
+                        changeState('order', order.products)
+                        changeState('open', true)
+                    }} />
                 </div>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
@@ -84,7 +79,10 @@ const ManageOrders = ({
                 <P>$ {order.totalPrice}</P>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
-                    <ProductsIcon />
+                    <ProductsIcon onClick={() => {
+                        changeState('order', order.products)
+                        changeState('open', true)
+                    }} />
                 </div>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
@@ -103,7 +101,10 @@ const ManageOrders = ({
                 <P>$ {order.totalPrice}</P>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
-                    <ProductsIcon />
+                    <ProductsIcon onClick={() => {
+                        changeState('order', order.products)
+                        changeState('open', true)
+                    }} />
                 </div>
 
                 <div style={{width: '150px', textAlign: 'center'}}>
@@ -195,12 +196,4 @@ const ProductsIcon = styled(Products)`
     margin: 10px;
     cursor: pointer;
     color: gray;
-`
-const Lol = styled.div`
-    position: absolute;
-    top: 0px;
-    left: 150px;
-    background-color: red;
-    width: 150px;
-    height: 150px;
 `

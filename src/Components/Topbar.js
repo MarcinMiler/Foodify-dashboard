@@ -35,7 +35,6 @@ const Container = styled.div`
     margin: 20px;
     background-color: white;
     border-radius: 7px;
-    box-shadow: 0px 0px 35px #c9c9c9;
 `
 const Wrap = styled.div`
     display: flex;
@@ -50,9 +49,8 @@ const Cirlce = styled.div`
     height: 40px;
     border-radius: 50%;
     margin: 0 10px 0 20px;
-    background: linear-gradient(#69BCFF, #3392F7);
+    background-color: #ec407a;
     cursor: pointer;
-    box-shadow: 0px 0px 15px #c9c9c9;
 `
 const P = styled.p`
     font-size: 14px;

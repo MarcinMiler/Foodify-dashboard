@@ -1,12 +1,15 @@
 import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import { Scrollbars } from 'react-custom-scrollbars'
+import styled from 'styled-components'
 import { Container, Wrap, Title, List, ListWhite, P } from '../Styled'
 
 import Topbar from './Topbar'
+import Products from 'react-icons/lib/md/shopping-cart'
 
 const Orders = ({
-    allOrders
+    allOrders,
+    changeState
 }) => {
     const listOfOrders = allOrders.map((order, i) => {
         return(
@@ -15,6 +18,14 @@ const Orders = ({
                 <P>{order.date}</P>
                 <P>{order.orderStatus}</P>
                 <P>{order.address}</P>
+
+                <div style={{width: '150px', textAlign: 'center'}}>
+                    <ProductsIcon onClick={() => {
+                        changeState('order', order.products)
+                        changeState('open', true)
+                    }} />
+                </div>
+
                 <P>$ {order.totalPrice}</P>
             </List>
         )
@@ -35,6 +46,7 @@ const Orders = ({
                             <P>Date</P>
                             <P>Status</P>
                             <P>Adrress</P>
+                            <P>Products</P>
                             <P>Total Price</P>
                         </ListWhite>
                         <Scrollbars style={{height: '86%'}}>
@@ -48,3 +60,10 @@ const Orders = ({
 }
 
 export default Orders
+
+const ProductsIcon = styled(Products)`
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+    color: gray;
+`

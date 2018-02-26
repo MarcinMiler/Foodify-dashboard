@@ -4,8 +4,14 @@ import gql from 'graphql-tag'
 
 import ManageOrders from '../Components/ManageOrders'
 import Nav from '../Components/Nav'
+import Modal from '../Components/Modal'
 
 class ManageOrdersContainer extends Component {
+
+    state = {
+        open: false,
+        order: {}
+    }
 
     componentDidMount() {
         this.unsubscribe = this.subscribe()
@@ -14,6 +20,8 @@ class ManageOrdersContainer extends Component {
     componentWillUnmount() {
         if (this.unsubscribe) this.unsubscribe()
     }
+
+    handleChangeState = (key, value) => this.setState({ [key]: value })
 
     updateStatus = (newStatus, id) => {
         this.props.updateOrderStatus({
@@ -43,11 +51,14 @@ class ManageOrdersContainer extends Component {
 
     render() {
         const { currentOrders } = this.props.currentOrders
+        const { allProducts } = this.props.allProducts
+        const { order, open } = this.state
         return(
             <div>
                 { currentOrders && 
                     <Nav>
-                        <ManageOrders currentOrders={currentOrders} updateStatus={this.updateStatus} />
+                        <ManageOrders currentOrders={currentOrders} updateStatus={this.updateStatus} changeState={this.handleChangeState} />
+                        { open ? <Modal products={allProducts} order={order} changeState={this.handleChangeState} /> : <div></div> }
                     </Nav>
                 }
             </div>
@@ -67,6 +78,14 @@ const currentOrdersQuery = gql`
             }
             totalPrice,
             address
+        }
+    }
+`
+const allProductsQuery = gql`
+    query allProducts {
+        allProducts {
+            id,
+            name
         }
     }
 `
@@ -92,5 +111,6 @@ const newOrderSubscription = gql`
 `
 export default compose(
     graphql(currentOrdersQuery, { name: 'currentOrders' }),
+    graphql(allProductsQuery, { name: 'allProducts' }),
     graphql(updateOrderStatusMutation, { name: 'updateOrderStatus' }),
 )(ManageOrdersContainer)

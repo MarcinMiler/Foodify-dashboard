@@ -69,14 +69,14 @@ const Item = styled(Link)`
     transition: all 300ms ease-out;
 
     &:hover {
-        color: #5D94F5;
+        color: #ec407a;
     }
 `
 const LogoIcon = styled(Logo)`
     font-size: 42px;
     display: block;
     margin: 40px auto 20px auto;
-    color: #5D94F5;
+    color: #ec407a;
 `
 const DashboardIcon = styled(Dashboard)`
     font-size: 32px;

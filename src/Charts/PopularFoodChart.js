@@ -11,7 +11,7 @@ const PopularFoodChart = ({
             <PolarAngleAxis dataKey="type" />
             <PolarRadiusAxis/>
             <Tooltip isAnimationActive={false} />
-            <Radar name="Orders" dataKey="orders" stroke="#5D94F5" fill="#5D94F5" fillOpacity={0.5}/>
+            <Radar name="Orders" dataKey="orders" stroke="#ec407a" fill="#ec407a" fillOpacity={0.5}/>
             </RadarChart>
         </ResponsiveContainer>
     )

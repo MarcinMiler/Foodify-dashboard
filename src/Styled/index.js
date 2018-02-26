@@ -4,7 +4,7 @@ import { Grid } from 'react-flexbox-grid'
 export const Container = styled(Grid)`
     width: 100%;
     height: 100vh;
-    background-color: #f7f7f7;
+    background-color: #EEEBEC;
 `
 export const Wrap = styled.div.attrs({
     height: props => props.height || '370px',
@@ -12,7 +12,6 @@ export const Wrap = styled.div.attrs({
     background-color: white;
     margin: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 35px #c9c9c9;
     
     height: ${props => props.height};
     padding: ${props => props.noPadd ? '0px' : '25px'};
