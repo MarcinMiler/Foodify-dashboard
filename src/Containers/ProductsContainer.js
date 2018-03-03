@@ -33,13 +33,13 @@ class ProductsContainer extends Component {
                 store.writeQuery({query: allProductsQuery, data})
             }
         })
-        let formData = new FormData()
-        formData.append('file', this.state.file)
+        // let formData = new FormData()
+        // formData.append('file', this.state.file)
 
-        fetch('http://localhost:4000/upload', {
-            method: 'POST',
-            body: formData
-        })
+        // fetch('http://localhost:4000/upload', {
+        //     method: 'POST',
+        //     body: formData
+        // })
     }
 
     deleteProduct = id => {
@@ -56,7 +56,6 @@ class ProductsContainer extends Component {
 
     render() {
         const { allProducts } = this.props.allProducts
-        console.log(this.props)
         return(
             <div>
                 { allProducts &&

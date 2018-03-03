@@ -1,11 +1,9 @@
 import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import { Scrollbars } from 'react-custom-scrollbars'
-import styled from 'styled-components'
-import { Container, Wrap, Title, List, ListWhite, P } from '../Styled'
+import { Container, Wrap, Title, List, ListWhite, P, ProductsIcon } from '../Styled'
 
 import Topbar from './Topbar'
-import Products from 'react-icons/lib/md/shopping-cart'
 
 const Orders = ({
     allOrders,
@@ -60,10 +58,3 @@ const Orders = ({
 }
 
 export default Orders
-
-const ProductsIcon = styled(Products)`
-    font-size: 30px;
-    margin: 10px;
-    cursor: pointer;
-    color: gray;
-`

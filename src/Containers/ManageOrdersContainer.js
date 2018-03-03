@@ -110,7 +110,7 @@ const newOrderSubscription = gql`
     }
 `
 export default compose(
-    graphql(currentOrdersQuery, { name: 'currentOrders' }),
+    graphql(currentOrdersQuery, { name: 'currentOrders', options: { fetchPolicy: 'network-only' } }),
     graphql(allProductsQuery, { name: 'allProducts' }),
     graphql(updateOrderStatusMutation, { name: 'updateOrderStatus' }),
 )(ManageOrdersContainer)

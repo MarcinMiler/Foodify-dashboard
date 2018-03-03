@@ -2,9 +2,8 @@ import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import { Scrollbars } from 'react-custom-scrollbars'
 import styled from 'styled-components'
-import { Container, Wrap, Title, List, ListWhite, P, Group, Input, Label } from '../Styled'
+import { Container, Wrap, Title, List, ListWhite, P, Group, Input, Label, StyledClose } from '../Styled'
 
-import Close from 'react-icons/lib/md/close'
 import DropZone from 'react-dropzone'
 import TopBar from '../Components/Topbar'
 
@@ -105,7 +104,7 @@ const Button = styled.div`
     height: 40px;
     margin-top: 30px;
     border-radius: 4px;
-    background-color: #5D94F5;
+    background-color: #ec407a;
     color: white;
     line-height: 40px;
     text-align: center;
@@ -121,10 +120,4 @@ const StyledDropZone = styled(DropZone)`
     width: 250px;
     height: 250px;
     border: 1px dashed black;
-`
-const StyledClose = styled(Close)`
-    color: black;
-    width: 150px;
-    font-size: 20px;
-    cursor: pointer;
 `

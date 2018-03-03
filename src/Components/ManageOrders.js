@@ -1,12 +1,8 @@
 import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import { Scrollbars } from 'react-custom-scrollbars'
-import styled from 'styled-components'
-import { Container, Wrap, Title, List, ListWhite, P } from '../Styled'
+import { Container, Wrap, Title, List, ListWhite, P, ProductsIcon, CloseIcon, CheckIcon } from '../Styled'
 
-import Check from 'react-icons/lib/md/check'
-import Close from 'react-icons/lib/md/close'
-import Products from 'react-icons/lib/md/shopping-cart'
 import TopBar from './Topbar'
 
 const Legend = () => (
@@ -48,7 +44,7 @@ const ManageOrders = ({
         )
     })
     const ordersPreparing = currentOrders
-    .filter(order => order.orderStatus === 'Order Confirmed')
+    .filter(order => order.orderStatus === 'Order confirmed')
     .map(order => {
         return(
             <List key={order.id}>
@@ -178,22 +174,3 @@ const ManageOrders = ({
 }
 
 export default ManageOrders
-
-const CheckIcon = styled(Check)`
-    color: #42f465;
-    font-size: 30px;
-    margin: 10px;
-    cursor: pointer;
-`
-const CloseIcon = styled(Close)`
-    color: red;
-    font-size: 30px;
-    margin: 10px;
-    cursor: pointer;
-`
-const ProductsIcon = styled(Products)`
-    font-size: 30px;
-    margin: 10px;
-    cursor: pointer;
-    color: gray;
-`

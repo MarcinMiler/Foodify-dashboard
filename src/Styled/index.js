@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { Grid } from 'react-flexbox-grid'
 
+import Products from 'react-icons/lib/md/shopping-cart'
+import Check from 'react-icons/lib/md/check'
+import Close from 'react-icons/lib/md/close'
+
 export const Container = styled(Grid)`
     width: 100%;
     height: 100vh;
@@ -76,14 +80,49 @@ export const Input = styled.input`
     display: block;
     &:focus {
         outline: none;
-        border-bottom: 1px solid #5D94F5;
-        color: #5D94F5;
+        border-bottom: 1px solid #ec407a;
+        color: #ec407a;
     }
     &:focus + label, &:valid + label{
         position: absolute;
         top: -10px;
         font-size: 12px;
-        color: #5D94F5;
+        color: #ec407a;
     }
     
+`
+export const ProductsIcon = styled(Products)`
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+    color: gray;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+
+    &:hover {
+        color: #ec407a;
+    }
+`
+export const CheckIcon = styled(Check)`
+    color: #42f465;
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+`
+export const CloseIcon = styled(Close)`
+    color: red;
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+`
+export const StyledClose = styled(Close)`
+    color: black;
+    width: 150px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+
+    &:hover {
+        color: #ec407a;
+    }
 `
